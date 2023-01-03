@@ -12,17 +12,17 @@ import (
 )
 
 func Init(conf *config.AppConfig) {
-	connectionString := fmt.Sprintf("%s:%s@tcp(%s)/%s", conf.DBUser, conf.DBPass, conf.DBAddr, conf.DBName)
-	var err error
+	connectionString := fmt.Sprintf("%s:%s@tcp(%s)/%s?parseTime=true", conf.DBUser, conf.DBPass, conf.DBAddr, conf.DBName)
 	db, err := sql.Open("mysql", connectionString)
 	if err != nil {
 		slog.Fatal(err)
 	}
 
-	// Set max idle connection time to 5 minutes.
-	db.SetConnMaxIdleTime(5 * time.Minute)
+	db.SetConnMaxIdleTime(time.Minute * 5)
 	if err = db.Ping(); err != nil {
 		slog.Fatal(err)
 	}
 	slog.Info("Connected to DB successfully!")
+
+	VideosDao = newVideosDAO(db)
 }

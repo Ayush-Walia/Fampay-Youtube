@@ -1,15 +1,11 @@
 package api
 
 import (
-	"fmt"
 	"net/http"
 
-	"github.com/gookit/slog"
+	"github.com/Ayush-Walia/Fampay-Youtube/utils"
 )
 
 func healthCheck(w http.ResponseWriter, r *http.Request) {
-	_, err := fmt.Fprint(w, "health check is awesome!")
-	if err != nil {
-		slog.Error(err)
-	}
+	utils.RespondWithString(w, http.StatusOK, "health check is awesome!")
 }

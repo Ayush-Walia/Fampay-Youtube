@@ -8,6 +8,7 @@ import (
 
 	"github.com/Ayush-Walia/Fampay-Youtube/api"
 	"github.com/Ayush-Walia/Fampay-Youtube/config"
+	"github.com/Ayush-Walia/Fampay-Youtube/service"
 	"github.com/Ayush-Walia/Fampay-Youtube/storage"
 	"github.com/gookit/slog"
 	"github.com/gorilla/mux"
@@ -25,9 +26,12 @@ func Serve() {
 
 	api.InitHandlers(router)
 	storage.Init(conf)
+	service.NewYoutubeService().Init(conf)
+	
 	Start(conf, router)
 }
 
+// Start the server
 func Start(conf *config.AppConfig, router *mux.Router) {
 	addr := ":" + conf.ServerPort
 
@@ -37,12 +41,11 @@ func Start(conf *config.AppConfig, router *mux.Router) {
 	}
 
 	go func() {
-		// always returns error. ErrServerClosed on graceful close
 		if err := server.ListenAndServe(); err != http.ErrServerClosed {
 			slog.Fatalf("ListenAndServe(): %v", err)
 		}
 	}()
-	slog.Infof("Listening on %s\n", addr)
+	slog.Infof("Listening on %s", addr)
 
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt)

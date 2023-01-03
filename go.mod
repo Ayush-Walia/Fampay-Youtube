@@ -1,35 +1,32 @@
 module github.com/Ayush-Walia/Fampay-Youtube
 
-require (
-	github.com/asaskevich/govalidator v0.0.0-20180720115003-f9ffefc3facf // indirect
-	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
-	github.com/go-pg/migrations v6.2.0+incompatible
-	github.com/go-pg/pg v7.1.7+incompatible
-	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
-	github.com/onsi/gomega v1.4.2 // indirect
-	golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4 // indirect
-	golang.org/x/sys v0.0.0-20220829200755-d48e67d00261 // indirect
-	golang.org/x/text v0.5.0 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
-	mellium.im/sasl v0.2.1 // indirect
-)
+go 1.19
 
 require (
 	github.com/go-sql-driver/mysql v1.7.0
 	github.com/gookit/slog v0.4.0
 	github.com/gorilla/mux v1.8.0
+	github.com/robfig/cron/v3 v3.0.1
+	google.golang.org/api v0.62.0
 )
 
 require (
+	cloud.google.com/go v0.99.0 // indirect
+	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
+	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/googleapis/gax-go/v2 v2.1.1 // indirect
 	github.com/gookit/color v1.5.2 // indirect
 	github.com/gookit/goutil v0.6.1 // indirect
 	github.com/gookit/gsr v0.0.8 // indirect
-	github.com/kr/pretty v0.1.0 // indirect
-	github.com/onsi/ginkgo v1.6.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
-	golang.org/x/crypto v0.0.0-20201217014255-9d1352758620 // indirect
-	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
+	go.opencensus.io v0.23.0 // indirect
+	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
+	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
+	golang.org/x/sys v0.0.0-20220829200755-d48e67d00261 // indirect
+	golang.org/x/text v0.5.0 // indirect
+	google.golang.org/appengine v1.6.7 // indirect
+	google.golang.org/genproto v0.0.0-20220314164441-57ef72a4c106 // indirect
+	google.golang.org/grpc v1.45.0 // indirect
+	google.golang.org/protobuf v1.27.1 // indirect
 )
-
-go 1.19
