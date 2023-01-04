@@ -41,3 +41,7 @@ To get the stored video data:
 
 To search for the videos title or description in stored videos(supports partial match):
 > curl -v -X GET 'http://localhost:8080/api/v1/search?query=query&pageNo=1&pageSize=10'
+
+Note: 
+* APIKeys can be set in docker-compose env var, multiple keys can passed comma separated.
+* Postman collection is also present in the repo
